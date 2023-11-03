@@ -35,7 +35,7 @@ def mark_as_done():
     name = input('Enter the name of the task to make as done: ')
     for task in tasks:
         if task['name'] == name:
-            remove_it = input(f'Are you sure you want to make the task "{name}" as done? y = yes, n = no')
+            remove_it = input(f'Are you sure you want to make the task "{name}" as done? y = yes, n = no: ')
             if remove_it == 'y':
                 task['done'] = True
                 print(f'The task {name} was marked as done.')
@@ -50,6 +50,7 @@ while True:
     print("1. Add a task")
     print("2. Remove a task")
     print("3. List tasks.")
+    print("4. Mark task as done.")
     print("0. Quit")
 
     number = int(input())
