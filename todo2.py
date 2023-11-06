@@ -32,13 +32,17 @@ def list_tasks():
         
 
 def mark_as_done():
-    name = input('Enter the name of the task to make as done: ')
-    for task in tasks:
-        if task['name'] == name:
-            remove_it = input(f'Are you sure you want to make the task "{name}" as done? y = yes, n = no: ')
-            if remove_it == 'y':
-                task['done'] = True
-                print(f'The task {name} was marked as done.')
+    for i, task in enumerate(tasks):
+        print(f'{i+1}. {task["name"]} - Done: {task["done"]}')
+
+    task_number = int(input('Enter the number of the task to make as done: '))
+    for i, task in enumerate(tasks):
+        if task_number == i+1:
+            is_done = input(f'Are you sure you want to make the task "{task["name"]}" as done? y = yes, n = no: ')
+            
+            if is_done == 'y':
+                task["done"] = True
+                print(f'The task "{task["name"]}" was marked as done.')
             else: 
                 continue
         else: 
@@ -46,6 +50,7 @@ def mark_as_done():
 
 
 while True:
+    print("===Welcome to the To-do List Application===")
     print("===Enter a number:===")
     print("1. Add a task")
     print("2. Remove a task")
